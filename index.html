@@ -16,9 +16,11 @@
           <div class="col-12 mt-2">
             <h2>Todo List</h2>
 
-            <div class="mt-5">
-              <input v-on:keyup.enter="addToDoList()" v-model='inputText' type="text" placeholder="Inserisci qualcosa da fare">
-              <button @click='addToDoList()' type="button">Salva</button>
+            <div class="form-inline">
+              <div class="form-group mt-5">
+                <input v-on:keyup.enter="addToDoList()" v-model='inputText' type="text" placeholder="Inserisci qualcosa da fare" class="form-control mr-2">
+                <button @click='addToDoList()' type="button" class="btn btn-outline-secondary">Salva</button>
+              </div>
             </div>
 
             <ul class="list-group mt-5">

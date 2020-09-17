@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <title>Todo List</title>
+  </head>
+  <body>
+
+    <div id="app">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 mt-2">
+            <h2>Todo List</h2>
+
+            <div class="mt-5">
+              <input v-on:keyup.enter="addToDoList()" v-model='inputText' type="text" placeholder="Inserisci qualcosa da fare">
+              <button @click='addToDoList()' type="button">Salva</button>
+            </div>
+
+            <ul class="list-group mt-5">
+              <li :class="(oggetto.done) ? 'list-group-item grigio' : 'list-group-item'" v-for='(oggetto, index) in listaToDo'>{{ oggetto.text }}
+                <span @click='toggleToDoList(index)' v-if='oggetto.done' class="badge badge-success">Fatto</span>
+                <span @click='toggleToDoList(index)' v-else='oggetto.done' class="badge badge-warning">Da fare</span>
+                <span @click='removeToDoList(index)' class="badge badge-danger">Elimina</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
